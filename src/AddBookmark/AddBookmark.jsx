@@ -30,7 +30,7 @@ class AddBookmark extends Component {
       body: JSON.stringify(bookmark),
       headers: {
         'content-type': 'application/json',
-        'authorization': `Bearer ${config.API_KEY}`
+        Authorization: `Bearer ${config.API_KEY}`
       }
     })
       .then(res => {
@@ -55,7 +55,6 @@ class AddBookmark extends Component {
         console.log(error)
         this.setState({ error })
       })
-      console.log(this.context);
   }
 
   handleClickCancel = () => {
@@ -63,7 +62,6 @@ class AddBookmark extends Component {
   };
 
   render() {
-    // console.log(this.props);
     const { error } = this.state
     return (
       <section className='AddBookmark'>

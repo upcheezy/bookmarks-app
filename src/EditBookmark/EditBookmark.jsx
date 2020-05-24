@@ -39,7 +39,7 @@ export default class EditBookmark extends Component {
         body: JSON.stringify(bookmark),
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${config.API_KEY}`,
+          Authorization: `Bearer ${config.API_KEY}`,
         },
       }
     )
@@ -59,11 +59,9 @@ export default class EditBookmark extends Component {
         console.log(error);
         this.setState({ error });
       });
-    //   console.log(this.context);
   };
 
   render() {
-    console.log(this.context);
     const { error } = this.state;
     return (
       <section className="AddBookmark">
@@ -74,15 +72,10 @@ export default class EditBookmark extends Component {
               (book) =>
                 book.id === parseInt(this.props.match.params.bookmark_id, 10)
             );
-            //   console.log(value);
-            //   console.log(this.props.match);
-            //   console.log(bookmark)
             return (
               <form className="EditBookmark__form" onSubmit={(e) => {
-                console.log(e);
                 e.preventDefault()
                 this.handleSubmit(e)
-                console.log(value);
                 value.editBookmark(this.state);
               } }>
                 <div className="EditBookmark__error" role="alert">

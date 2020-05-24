@@ -28,7 +28,6 @@ class App extends Component {
     const newBookmarks = this.state.bookmarks.map(art =>
      (art.id === newBookmark.id) ? newBookmark : art
    )
-   console.log(newBookmarks);
    this.setState({
      bookmarks: newBookmarks
    })
@@ -42,7 +41,6 @@ class App extends Component {
   };
 
   deleteBookmark = bookmarkId => {
-    console.log(bookmarkId)
     // todo: remove bookmark with bookmarkId from state
     const newBookmarks = this.state.bookmarks.filter(bm =>
       bm.id !== bookmarkId

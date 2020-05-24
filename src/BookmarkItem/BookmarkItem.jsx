@@ -10,7 +10,7 @@ function deleteBookmarkRequest(bookmarkId, cb) {
     method: "DELETE",
     headers: {
       "content-type": "application/json",
-      authorization: `Bearer ${config.API_KEY}`,
+      Authorization: `Bearer ${config.API_KEY}`,
     },
   })
     .then((res) => {
@@ -24,7 +24,6 @@ function deleteBookmarkRequest(bookmarkId, cb) {
       return res.json();
     })
     .then((data) => {
-      console.log({ data });
       cb(bookmarkId);
     })
     .catch((error) => {
