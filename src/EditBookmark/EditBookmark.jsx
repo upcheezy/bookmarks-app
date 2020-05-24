@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BookmarksContext from "../BookmarksContext";
-// import config from "../config";
+import config from "../config";
 
 const Required = () => <span className="AddBookmark__required">*</span>;
 
@@ -33,13 +33,13 @@ export default class EditBookmark extends Component {
     };
     this.setState({ error: null });
     fetch(
-      `http://localhost:8000/api/bookmarks/${this.props.match.params.bookmark_id}`,
+      `${config.API_ENDPOINT}/${this.props.match.params.bookmark_id}`,
       {
         method: "PATCH",
         body: JSON.stringify(bookmark),
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer c3589d0a-718c-4f2d-b4e3-6c4da26b6b87`,
+          authorization: `Bearer ${config.API_KEY}`,
         },
       }
     )

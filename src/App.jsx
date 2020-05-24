@@ -57,7 +57,7 @@ class App extends Component {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer c3589d0a-718c-4f2d-b4e3-6c4da26b6b87`
+        Authorization: `Bearer ${config.API_KEY}`
       }
     })
       .then(res => {
